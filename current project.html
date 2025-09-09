@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Current Project - Naahani Builders</title>
+  <title>Our Current Project - Naahani Builders</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="businesslogo.png">
+  <link rel="icon" type="image/png" href="images/businesslogo.png">
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -13,69 +14,105 @@
       margin: 0;
       color: #222;
     }
-    header, footer {
+
+    header,
+    footer {
       background: #222;
       color: #fff;
       padding: 24px 0;
       text-align: center;
     }
+
     .container {
       max-width: 1100px;
       margin: 40px auto;
       padding: 0 20px;
     }
+
     .intro {
       text-align: center;
       margin-bottom: 40px;
     }
+
     .intro h1 {
       font-size: 2.7rem;
       margin-bottom: 10px;
       color: #1a1a1a;
     }
+
     .intro p {
       font-size: 1.2rem;
       color: #444;
     }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 32px;
+
+    /* Projects */
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
+
+    .project-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-top: 40px;
+    }
+
     .project-card {
-      background: #fff;
-      border-radius: 14px;
-      box-shadow: 0 2px 12px #0001;
+      flex: 1;
+      max-width: 500px;
+      border-radius: 12px;
       overflow: hidden;
-      transition: transform 0.2s;
-      padding-bottom: 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
-    .project-card:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 6px 24px #0002;
-    }
+
     .project-card img {
       width: 100%;
-      height: 220px;
+      height: 100%;
       object-fit: cover;
       display: block;
     }
+
     .project-info {
-      padding: 18px 20px 0 20px;
+      flex: 1;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
-    .project-info h2 {
-      font-size: 1.3rem;
-      margin: 0 0 10px 0;
-      color: #1a1a1a;
+
+    .project-info h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
     }
+
     .project-info p {
-      font-size: 1rem;
-      color: #555;
-      margin-bottom: 10px;
+      font-size: 1.1rem;
+      line-height: 1.6;
     }
+
+    .project-info:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 768px) {
+      .project-wrapper {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .project-card,
+      .project-info {
+        max-width: 100%;
+      }
+    }
+
     .gallery-section {
       margin: 40px 0 0 0;
     }
+
     .section-title {
       font-size: 2rem;
       color: #181818;
@@ -85,44 +122,101 @@
       text-align: center;
       letter-spacing: 1px;
     }
+
     .gallery {
       display: flex;
       flex-wrap: wrap;
       gap: 24px;
       justify-content: center;
     }
+
     .gallery img {
-      width: 320px;
-      height: 200px;
-      object-fit: cover;
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
       border-radius: 10px;
       box-shadow: 0 2px 8px #0001;
       background: #eee;
     }
+
     #our-promise ul {
-      font-size:1.15rem; 
-      color:#222; 
-      line-height:1.7; 
-      list-style:none; 
-      padding:0;
+      font-size: 1.15rem;
+      color: #222;
+      line-height: 1.7;
+      list-style: none;
+      padding: 0;
     }
+
     #our-promise ul li {
-      margin-bottom:16px;
+      margin-bottom: 16px;
     }
+
     @media (max-width: 700px) {
-      .gallery img, .project-card img { width: 100%; height: 160px; }
-      .container { padding: 0 6px; }
+      .gallery img,
+      .project-card img {
+        width: 100%;
+        height: auto;
+      }
+
+      .container {
+        padding: 0 6px;
+      }
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 32px;
+      bottom: 32px;
+      background: #25d366;
+      color: #fff;
+      border-radius: 32px;
+      padding: 10px 22px 10px 14px;
+      box-shadow: 0 2px 12px #0002;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      text-decoration: none;
+      z-index: 999;
+      transition: box-shadow 0.2s, background 0.2s;
+    }
+
+    .whatsapp-float:hover {
+      background: #128c7e;
+      box-shadow: 0 4px 24px #0003;
+    }
+
+    .whatsapp-icon {
+      display: flex;
+      align-items: center;
+    }
+
+    .whatsapp-text {
+      display: inline-block;
+    }
+
+    @media (max-width: 600px) {
+      .whatsapp-float {
+        right: 12px;
+        bottom: 12px;
+        padding: 8px 14px 8px 10px;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <div style="display: flex; align-items: center; justify-content: center; gap: 16px;">
-      <img src="businesslogo.png" alt="Naahani Builders Logo" style="height:48px; width:auto;">
-      <h1 style="margin: 0; font-size: 2.2rem;">Apartment Projects</h1>
+      <img src="images/businesslogo.png" alt="Naahani Builders Logo" style="height:48px; width:auto;">
+      <h1 style="margin: 0; font-size: 2.2rem;">Urban Style Apartment</h1>
     </div>
     <a href="index.html" style="color:#ffcc00;text-decoration:none;font-size:1.1rem;">&#8592; Back to Home</a>
   </header>
+
   <div class="container">
     <div class="intro">
       <h1>Modern Apartments for Inspired Living</h1>
@@ -131,14 +225,6 @@
         <strong>Naahani Builders delivers homes that elevate your lifestyle and offer lasting value.</strong>
       </p>
     </div>
-    <div class="projects-grid">
-      <div class="project-card">
-        <img src="individualhome.jpg" alt="Skyline Heights">
-        <div class="project-info">
-          <h2>Sample1</h2>
-          <p>Premium 3BHK apartments with panoramic city views, rooftop amenities, and a vibrant community atmosphere.</p>
-        </div>
-      </div>
 
     <div class="gallery-section">
       <div class="section-title">Gallery of Apartment Projects</div>
@@ -167,17 +253,17 @@
       </div>
     </section>
   </div>
+
   <footer>
     &copy; 2025 Naahani Builders. All rights reserved.
   </footer>
 
   <!-- WhatsApp Floating Button -->
   <a href="https://wa.me/918754471885?text=Hi%2C%20I%27m%20interested%20in%20your%20project"
-     class="whatsapp-float"
-     target="_blank"
-     title="Chat on WhatsApp">
+    class="whatsapp-float"
+    target="_blank"
+    title="Chat on WhatsApp">
     <span class="whatsapp-icon" aria-hidden="true">
-      <!-- Official WhatsApp SVG icon -->
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
         <circle cx="16" cy="16" r="16" fill="#25D366"/>
         <path d="M23.5 8.5C21.5 6.5 18.5 6.5 16.5 8.5C14.5 10.5 14.5 13.5 16.5 15.5C18.5 17.5 21.5 17.5 23.5 15.5C25.5 13.5 25.5 10.5 23.5 8.5Z" fill="white"/>
@@ -186,44 +272,6 @@
     </span>
     <span class="whatsapp-text">Chat on WhatsApp</span>
   </a>
-  <style>
-    .whatsapp-float {
-      position: fixed;
-      right: 32px;
-      bottom: 32px;
-      background: #25d366;
-      color: #fff;
-      border-radius: 32px;
-      padding: 10px 22px 10px 14px;
-      box-shadow: 0 2px 12px #0002;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1.15rem;
-      font-weight: 600;
-      text-decoration: none;
-      z-index: 999;
-      transition: box-shadow 0.2s, background 0.2s;
-    }
-    .whatsapp-float:hover {
-      background: #128c7e;
-      box-shadow: 0 4px 24px #0003;
-    }
-    .whatsapp-icon {
-      display: flex;
-      align-items: center;
-    }
-    .whatsapp-text {
-      display: inline-block;
-    }
-    @media (max-width: 600px) {
-      .whatsapp-float {
-        right: 12px;
-        bottom: 12px;
-        padding: 8px 14px 8px 10px;
-        font-size: 1rem;
-      }
-    }
-  </style>
 </body>
+
 </html>
